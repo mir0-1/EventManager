@@ -54,10 +54,10 @@ void EventManager::setEventData(void* newData)
 
 guint EventManager::registerConnection(NMActiveConnection* connection, GCallback callback)
 {
-	return g_signal_connect(activatingConnection, "notify::" NM_ACTIVE_CONNECTION_STATE, callback, this);
+	return g_signal_connect(connection, "notify::" NM_ACTIVE_CONNECTION_STATE, callback, this);
 }
 
 void unregisterConnection(NMActiveConnection* connection, guint* id)
 {
-	g_clear_signal_handler(id, activatingConnection);
+	g_clear_signal_handler(id, connection);
 }
