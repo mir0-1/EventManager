@@ -57,7 +57,7 @@ guint EventManager::registerConnection(NMActiveConnection* connection, GCallback
 	return g_signal_connect(connection, "notify::" NM_ACTIVE_CONNECTION_STATE, callback, this);
 }
 
-void unregisterConnection(NMActiveConnection* connection, guint* id)
+void EventManager::unregisterConnection(NMActiveConnection* connection, guint* id)
 {
 	g_clear_signal_handler(id, connection);
 }
