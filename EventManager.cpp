@@ -5,7 +5,7 @@ EventManager::EventManager()
 	g_mutex_init(&gMutex);
 	g_cond_init(&gCond);
 	gMainContext = g_main_context_get_thread_default();
-	gLoopThread = g_thread_new(NULL, gLoopThreadFunc, gMainContext);
+	gLoopThread = g_thread_new(NULL, gLoopThreadFunc, (gpointer)this);
 }
 
 EventManager::~EventManager()
