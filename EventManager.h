@@ -20,8 +20,8 @@ class EventManager
 		void signalAsyncReady();
 		void* getEventData();
 		void setEventData(void* newData);
-		guint registerConnection(NMActiveConnection* connection, GCallback callback);
-		void unregisterConnection(NMActiveConnection* connection, guint* id);
+		gulong registerConnection(NMActiveConnection* connection, GCallback callback);
+		void unregisterConnection(NMActiveConnection* connection, gulong* id);
 	
 		EventManager();
 		~EventManager();

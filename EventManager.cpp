@@ -52,12 +52,12 @@ void EventManager::setEventData(void* newData)
 	lastEventData = newData;
 }
 
-guint EventManager::registerConnection(NMActiveConnection* connection, GCallback callback)
+gulong EventManager::registerConnection(NMActiveConnection* connection, GCallback callback)
 {
 	return g_signal_connect(connection, "notify::" NM_ACTIVE_CONNECTION_STATE, callback, this);
 }
 
-void EventManager::unregisterConnection(NMActiveConnection* connection, guint* id)
+void EventManager::unregisterConnection(NMActiveConnection* connection, gulong* id)
 {
 	g_clear_signal_handler(id, connection);
 }
